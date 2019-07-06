@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form HTML</title>
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+	.content{
+	border-style: solid;
+	width: 600px;
+	}
+	
+</style>
+<body>
+	
+	<form class="content" name="myForm" action="http://vnexpress.net" method="get">	
+		<b>Form nhập dữ liệu</b><br>
+		<table>
+			<colgroup>
+				<col width="150px">
+				<col width="200px"> 
+			</colgroup>
+
+			<tr>
+				<td><label for ="TieuDe">Tiêu đề</label></td>
+				<td><input type="text" id ="TieuDe"required name="TieuDe" size="50px"></td>
+			</tr>
+
+			<tr>
+				<td><label for ="Comments">Nội dung phản hồi</label></td>
+				<td><textarea name="Comments" id="Comments"required cols="50"></textarea></td>
+			</tr>
+
+			<tr>
+				<td><label for ="gender">Giới tính</label></td>
+				<td>
+					<input type="radio" id="gender" name="gender" value="male"> Male<br>
+  					<input type="radio"  name="gender" value="female" checked> Female<br>
+  					<input type="radio"  name="gender" value="other"> Other  
+				</td>
+			</tr>
+
+			<tr>
+				<td><label for ="Chuyenmucphanhoi">Chuyên mục phản hồi</label></td>
+				<td>
+					<select>
+					  <option id="Chuyenmucphanhoi" value="thethao">Thể thao</option>
+					  <option  value="khoahoc" selected>Khoa học</option>
+					  <option  value="vanhoa">Văn hóa</option>
+					  <option  value="dulich" >Du lịch</option>
+					  <option  value="giadinh" >Gia đình</option>
+					</select>		
+				</td>
+			</tr>
+
+			<tr>
+				<td><label for ="Sothich">Sở thích</label></td>
+				<td>
+					<fieldset>
+					<legend>chọn nhiều sở thích</legend>
+						<input id ="Sothich" type="checkbox" name="favorite" value="nghe nhạc" checked> nghe nhạc <br>
+						<input type="checkbox" name="favorite" value="ca hát" checked> ca hát <br>
+						<input type="checkbox" name="favorite" value="Nhảy múa"> nhảy múa
+					</fieldset>
+				</td>
+			</tr>
+
+			<tr>
+				<td><label for ="Email">Email</label></td>
+				<td><input type="text" required name="Email" id="Email" size="50px"></td>
+			</tr>
+
+			<tr>
+				<td><label for ="Hovaten">Họ và tên</label></td>
+				<td><input type="hidden" id="Hovaten" name="Hovaten" value="Nguyễn Trọng Nghĩa" class="inputText"></td>
+			</tr>
+		</table>
+
+		<table>
+			<center>
+				<button type="reset" name="resetBtn" value="Reset">Reset</button>
+				<button type="submit" name="submietBtn" value ="Submit">Gửi</button>
+			</center>	
+		</table>
+
+		<table>
+			<center>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/knW7-x7Y7RE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</center>
+		</table>
+	</form>
+</body>
+</html>
