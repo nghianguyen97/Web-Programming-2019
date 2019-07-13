@@ -1,0 +1,37 @@
+input[type=email] {
+    height: 50px;
+}
+
+input[type=submit]:hover {
+    color: blue;
+}
+
+input[type=reset]:hover {
+    color: blue;
+}
+
+div:nth-last-child(3) {
+    color: pink;
+}
+
+div:nth-last-child(2) {
+    color: green;
+}
+
+div:last-child {
+    color: aqua;
+}
+
+table {
+    border: 1px solid black;
+    width: 600px;
+}
+
+.btn {
+    text-align: center;
+}
+
+iframe {
+    width: 600px;
+    height: 300px;
+}
