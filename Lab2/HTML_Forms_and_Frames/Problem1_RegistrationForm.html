@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+</head>
+<style type="text/css">
+    #btn {
+        background-color: #BCA9F5;
+        text-align: center;
+    }
+    
+    .right {
+        text-align: right;
+    }
+    
+    table,
+    td {
+        border: 1px solid black;
+        width: 300px;
+    }
+</style>
+
+<body>
+    <form action="" method="post">
+        <table cellpadding="5">
+            <tr>
+                <td class="right"><strong>Last name</strong></td>
+                <td>
+                    <input type="text" name="lastname" size="50">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>First name</strong></td>
+                <td>
+                    <input type="text" name="firstname" size="50">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Address</strong></td>
+                <td>
+                    <textarea cols="50" name="address"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>City</strong></td>
+                <td>
+                    <input type="text" name="city" size="20"> <strong>State </strong><input type="text" name="state" size="10">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Zip/Postal Code</strong></td>
+                <td>
+                    <input type="text" name="postalCode" size="10">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Country</strong></td>
+                <td>
+                    <select name="country">
+                        <option value="China" >China</option>
+                        <option value="Vietnam" selected>Vietnam</option>
+                        <option value="Japan">Japan</option>
+				</select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Phone (Country code, area code, number)</strong></td>
+                <td>
+                    ( +<input type="text" name="countrycode" size="3"> ) <input type="text" name="areacode" size="3"> - <input type="text" name="phone" size="20">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>E-mail</strong></td>
+                <td>
+                    <input type="text" name="e-mail" size="50" placeholder="example@gmail.com">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Brith date</strong></td>
+                <td>
+                    Month <input type="text" name="month" size="1"> Day <input type="text" name="day" size="1"> Year (4 digit) <input type="text" name="year" size="3">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Gender</strong></td>
+                <td>
+                    <select name="gender">
+    					<option value="Male" selected>Male</option>
+    					<option value="Female">Female</option>	
+    					<option value="Other">Other</option>	
+				    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Starting date</strong></td>
+                <td>
+                    <input type="radio" name="2019" value="Spring2019"> Spring 2019
+                    <input type="radio" name="2019" value="Summer2019"> Summer 2019
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right"><strong>Comments/Questions</strong></td>
+                <td>
+                    <textarea cols="50" name="comment" placeholder="Please send me more information in the logding."></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td id="btn" colspan="2">
+                    <input type="submit" name="submit" value="Submit">
+                    <input type="reset" name="reset" value="Clear This Form">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
