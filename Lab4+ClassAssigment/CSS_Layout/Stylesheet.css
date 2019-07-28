@@ -1,0 +1,24 @@
+ul {
+    list-style-type: none;
+}
+
+span {
+    text-decoration: none;
+    color: black;
+}
+
+li ul {
+    display: none;
+}
+
+li ul li {
+    color: #888888;
+}
+
+ul>li:hover>span {
+    text-decoration: underline;
+}
+
+li:hover>ul {
+    display: block;
+}
