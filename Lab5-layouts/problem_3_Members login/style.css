@@ -1,0 +1,80 @@
+body {
+    color: #9F9F9F;
+}
+
+input {
+    color: #000000;
+}
+
+main {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#members-login {
+    width: 680px;
+    background-color: #3B3B3B;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    height: 100%;
+}
+
+#logo {
+    float: left;
+    margin-left: 15px;
+}
+
+#login-btn {
+    background-image: url('btn.png');
+    margin-left: 13.5px;
+    width: 56px;
+    height: 28px;
+    background-color: #3B3B3B;
+    border: none;
+    color: #FFF;
+    src: "./images/btn.png";
+}
+
+#login-btn:hover {
+    background-color: rgba(120, 120, 120, 0.80);
+    border-radius: 5pt;
+}
+
+#login-info {
+    color: #FFF;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+header {
+    background-color: #343434;
+    border-bottom: 5px solid #2E2E2E;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 100%;
+    padding: 25px 0 23px 0;
+}
+
+#about-header {
+    color: #FCD61B;
+    font-weight: 500;
+    margin-left: 20px;
+    font-size: 25pt;
+    margin-top: 10pt;
+    margin-bottom: 3pt;
+}
+
+#text {
+    font-family: serif;
+    color: #A5A5A5;
+    font-weight: 100;
+    font-size: 13pt;
+    margin: 20px;
+}
+
+#special {
+    color: #FFF;
+}

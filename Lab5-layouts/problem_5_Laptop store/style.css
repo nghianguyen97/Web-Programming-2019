@@ -1,0 +1,94 @@
+main {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-family: sans-serif;
+    overflow: hidden;
+    height: 530px;
+}
+
+img {
+    margin-left: 10pt;
+    width: 100pt;
+    height: 45pt;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    font-size: 30px;
+}
+
+ul li {
+    font-weight: bold;
+    display: inline-block;
+    color: #00ACF0;
+    text-decoration: underline;
+}
+
+hr {
+    width: 90%;
+    border: 1px solid #000;
+}
+
+#left {
+    margin-left: 20px;
+    width: 70%;
+    float: left;
+    border: 2px solid #000;
+    padding: 10px;
+    height: 70%;
+    margin-top: 10pt;
+}
+
+fieldset {
+    border: 2px solid #000;
+}
+
+fieldset>legend {
+    font-weight: bold;
+    text-align: center;
+}
+
+#left-left {
+    float: left;
+    width: 300px;
+}
+
+#right-right {
+    margin-left: 300px;
+    width: 300px;
+}
+
+#right {
+    padding-left: 75%;
+    font-size: 1.5em;
+    padding-top: 50pt;
+}
+
+#right span,
+#right input {
+    margin-bottom: 10%;
+    text-align: right;
+}
+
+#right input {
+    margin-left: 15%;
+}
+
+#sp {
+    margin-top: 10pt;
+    margin-right: 20pt;
+    float: right;
+    top: 2pt;
+    text-align: right;
+}
+
+#spleft {
+    float: left;
+    margin-top: auto;
+    margin-left: 20pt;
+    font-weight: bold;
+}
