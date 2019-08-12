@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>MMSA (Min, Max, Sum, Average) of N Numbers</title>
+    <style>
+        body {
+            padding-top: 50px
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" id="text1"></input>
+    <button id="button1" onclick="add_element_to_array()">Add</button>
+    <button id="button2" onclick="display_array()">Print</button>
+    <p id="arrayInfo"></p>
+    <p id="min"></p>
+    <p id="sum"></p>
+    <p id="avg"></p>
+    <p id="max"></p>
+
+
+    <script>
+        var x = 0;
+        var array = Array();
+
+        function add_element_to_array() {
+            array[x] = document.getElementById("text1").value;
+            x++;
+            document.getElementById("text1").value = "";
+        }
+
+        function display_array() {
+            var e = "",
+                max = array[0],
+                min = array[0],
+                sum = 0,
+                avg = 0;
+
+            for (var y = 0; y < array.length; y++) {
+                e += array[y].toString() + " ";
+                sum += parseInt(array[y]);
+                if (max < parseInt(array[y])) {
+                    max = parseInt(array[y]);
+                }
+                if (min > parseInt(array[y])) {
+                    min = parseInt(array[y]);
+                }
+
+            }
+            document.getElementById("arrayInfo").innerHTML = e;
+            document.getElementById("max").innerHTML = `max: ${max}`;
+            document.getElementById("min").innerHTML = `min: ${min}`;
+            document.getElementById("sum").innerHTML = `sum: ${sum}`;
+            document.getElementById("avg").innerHTML = `average: ${sum / array.length}`;
+        }
+    </script>
+</body>
+
+</html>

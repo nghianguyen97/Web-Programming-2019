@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prime check</title>
+</head>
+
+<body>
+    <input id="number" type="text">
+    <button onclick="checkPrime()">Check</button>
+    <p id="result">Thank you today</p>
+
+    <script>
+        function checkPrime() {
+            var userInput = document.getElementById('number').value;
+
+            if (userInput < 2) {
+                document.getElementById('result').innerText = 'false';
+            }
+            for (let index = 2; index <= Math.sqrt(userInput); index++) {
+                if (userInput % index === 0) {
+                    document.getElementById('result').innerText = 'false';
+                    return;
+                }
+            }
+            document.getElementById('result').innerText = 'true';
+        }
+    </script>
+</body>
+
+</html>

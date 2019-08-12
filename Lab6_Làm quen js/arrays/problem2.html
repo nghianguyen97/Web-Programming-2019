@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lexicographically compare</title>
+</head>
+
+<body>
+    <p>tên 1</p>
+    <input id="name1" type="text">
+
+    <p>tên 2</p>
+    <input id="name2" type="text">
+
+    <button onclick="compare()">Compare</button>
+    <p id="result">Thank you today</p>
+
+    <script>
+        function compare() {
+            var name1 = document.getElementById("name1").value;
+            var name2 = document.getElementById("name2").value;
+
+            var arr1 = name1.split('');
+            var arr2 = name2.split('');
+
+            var lengthToCompare = arr1.length > arr2.length ? arr2.length : arr1.length;
+
+            var result = 0;
+            for (let i = 0; i < lengthToCompare; i++) {
+                if (arr1[i] > arr2[i]) {
+                    result = 1;
+                    break; //tên 1 lớn hơn
+                } else if (arr1[i] < arr2[i]) {
+                    result = 2;
+                    break; // tên 2 lớn hơn
+                }
+            }
+            // result === 0;
+
+            if (result === 0 && arr1.length > arr2.length) {
+                result = 1;
+            } else if (result === 0 && arr1.length < arr2.length) {
+                result = 2;
+            }
+
+            if (result === 1) {
+                document.getElementById('result').innerHTML = 'tên 1 lớn hơn';
+            } else if (result === 2) {
+                document.getElementById('result').innerHTML = 'tên 2 lớn hơn';
+            } else {
+                document.getElementById('result').innerHTML = 'hai tên bằng nhau';
+            }
+        }
+    </script>
+</body>
+
+</html>

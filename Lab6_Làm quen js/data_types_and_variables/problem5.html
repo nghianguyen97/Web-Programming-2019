@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Parsing numbers</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <button onclick="myFunction()">Click to show result</button>
+    </p>
+    <table id="tb1">
+        <tr>
+            <th>Str</th>
+            <th>parseInt(str)</th>
+            <th>parseFloat(str)</th>
+            <th>Number(str)</th>
+            <th>+str</th>
+            <th>str|0</th>
+        </tr>
+        <tr>
+            <td id="td1">'1234'</td>
+            <td id="p1_1_pi"></td>
+            <td id="p1_1_pf"></td>
+            <td id="p1_1_number"></td>
+            <td id="p1_1_str"></td>
+            <td id="p1_1_"></td>
+
+        </tr>
+        <tr>
+            <td id="td2">'1238abc'</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="td3">'0.15'</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="td4">'3.14ivan'</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="td5">'Infinity'</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="td6">'99999999999999999999'</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        var arr = new Array('1234', '1238abc', '0.15', '3.14ivan', 'Infinity', '99999999999999999999');
+
+        function myFunction() {
+            var mtb = document.getElementById("tb1");
+            for (var j = 1; j < mtb.rows.length; j++) {
+                mtb.rows[j].cells[1].innerHTML = parseInt(arr[j - 1]);
+            }
+            for (var j = 1; j < mtb.rows.length; j++) {
+                mtb.rows[j].cells[2].innerHTML = parseFloat(arr[j - 1]);
+            }
+            for (var j = 1; j < mtb.rows.length; j++) {
+                mtb.rows[j].cells[3].innerHTML = Number(arr[j - 1]);
+            }
+            for (var j = 1; j < mtb.rows.length; j++) {
+                mtb.rows[j].cells[4].innerHTML = +(arr[j - 1]);
+            }
+            for (var j = 1; j < mtb.rows.length; j++) {
+                mtb.rows[j].cells[5].innerHTML = arr[j - 1] | 0;
+            }
+        }
+    </script>
+</body>
+
+</html>
