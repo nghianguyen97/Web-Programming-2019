@@ -1,0 +1,148 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+}
+
+.wrap {
+    max-width: 1200px;
+}
+
+.navbar {
+    background-color: white !important;
+}
+
+.navbar li a:hover {
+    color: gray !important;
+}
+
+.carousel-inner img {
+    height: 550px;
+    width: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+
+.carousel-caption h1 {
+    font-size: 150%;
+    text-shadow: 10px 10px 15px #000;
+    color: red;
+}
+
+.carousel-caption h3 {
+    font-size: 100%;
+    text-shadow: 10px 10px 15px #000;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #c32f10;
+}
+
+.btn-primary {
+    background-color: black;
+}
+
+.jumbotron {
+    padding: 1rem;
+    border-radius: 0;
+}
+
+.welcome hr {
+    border-top: 2px solid rgba(62, 44, 100, 0.6);
+    width: 95%;
+    margin-bottom: 2rem;
+}
+
+.fa-windows {
+    color: royalblue;
+}
+
+.fa-react {
+    color: #81D8F7;
+}
+
+.fa-angular {
+    color: rgb(177, 43, 55);
+}
+
+.fa-css3 {
+    color: #D76537;
+}
+
+.social a {
+    font-size: 3em;
+    padding: 3rem;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-twitter {
+    color: #00aced;
+}
+
+.fa-google-plus-g {
+    color: #dd4b39;
+}
+
+.fa-instagram {
+    color: #517fa4;
+}
+
+.fa-youtube {
+    color: #bb0000;
+}
+
+footer {
+    padding: 20px;
+    background-color: #afacac;
+}
+
+.footerText a {
+    color: #616161;
+}
+
+hr.light {
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+}
+
+.fa-globe-americas {
+    color: blue;
+}
+
+.light-100 {
+    border-top: 1px solid #d5d5d5;
+    width: 100%;
+}
+
+.mega-menu {
+    width: 800px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.mega-menu a {
+    color: #262626;
+}
+
+.mega-menu .sub-menu-heading {
+    color: darkcyan;
+}
+
+@media(max-width:500px) {
+    .mega-menu {
+        width: 300px;
+    }
+}
+
+.text-uppercase {
+    text-transform: none !important;
+}
