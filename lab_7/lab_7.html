@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>JS Events</title>
+    <style type="text/css">
+        .wrap {
+            max-width: 1170px;
+            width: 100%;
+            margin: 0px auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body onload="LoadDuLieu();">
+    <div class="wrap">
+        <h1 style="text-align: center">DANH SÁCH SINH VIÊN</h1>
+        <div class="Group-SV" id="Group-SV">
+            <div class="row" id="Group-New">
+                <div class="col-4">
+                    <input type="text" class="form-control" id="HoTen" placeholder="Enter Họ và tên">
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="MSSV" placeholder="Enter Họ và tên">
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-primary" id="New">Thêm mới</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 border border-dark">STT</div>
+                <div class="col-4 border border-dark">Họ và tên</div>
+                <div class="col-4 border border-dark">MSSV</div>
+                <div class="col-3 border border-dark">Chức năng</div>
+            </div>
+        </div>
+        <div class="studentInfo">
+
+        </div>
+        <div>
+            <!-- <div class="row" id="Group-New">
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="HoTen" placeholder="Enter Họ và tên">
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary" id="New">Thêm mới</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1">1</div>
+                <div class="col-4">Nguyễn A</div>
+                <div class="col-4">22541</div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button>
+                    <button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <script>
+        var DSs = [{
+            "HoTen": "Nguyễn Văn A",
+            "MSSV": "2230",
+            "Email": "a@student.com",
+            "ClassCode": "Lop1"
+        }, {
+            "HoTen": "Đoàn Văn B",
+            "MSSV": "2227",
+            "Email": "b@student.com",
+            "ClassCode": "Lop2"
+        }, {
+            "HoTen": "Đỗ Thị D",
+            "MSSV": "2219",
+            "Email": "c@student.com",
+            "ClassCode": "Lop1"
+        }, ];
+
+        DSs.sort(function(a, b) {
+            if (a.MSSV > b.MSSV) {
+                return 1;
+            } else if (a.MSSV < b.MSSV) {
+                return -1;
+            } else {
+                if (a.HoTen > b.HoTen) {
+                    return 1;
+                } else if (a.HoTen < b.HoTen) {
+                    return -1;
+                } else {
+                    if (a.Email > b.Email) {
+                        return 1;
+                    } else if (a.Email < b.Email) {
+                        return -1;
+                    } else {
+                        if (a.ClassCode > b.ClassCode) {
+                            return 1;
+                        } else if (a.ClassCode < b.ClassCode) {
+                            return -1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        });
+
+        function LoadDuLieu() {
+            ShowData();
+        }
+
+        //function to ShowData
+
+        function ShowData() {
+            $(".studentInfo").html(""); //xóa dữ liệu để không bị trùng lặp
+            for (let _index in DSs) {
+                let _STT = +_index + 1;
+                let str = `<div class="row">
+                <div class="col-1">${_STT}</div>
+                <div class="col-4">${DSs[_index].HoTen}</div>
+                <div class="col-4">${DSs[_index].MSSV}</div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSs[_index].MSSV})">Edit</button>
+                    <button type="button" class="btn btn-danger Del" onclick="Del(${DSs[_index].MSSV})">Del</button>
+                </div>
+            </div>`;
+
+                $(".studentInfo").append(str);
+            }
+        }
+
+        // hiểm thị dssv theo id lớp
+        function ShowDataByIDClass(_malop) {
+            let _STT = 1;
+            $(".studentInfo").html(""); //xóa dữ liệu để không bị trùng lặp
+            for (let _index in DSs) {
+
+                if (DSs[_index].ClassCode == _malop) {
+                    let str = `<div class="row">
+                <div class="col-1">${_STT}</div>
+                <div class="col-4">${DSs[_index].HoTen}</div>
+                <div class="col-4">${DSs[_index].MSSV}</div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button>
+                    <button type="button" class="btn btn-danger Del" onclick="Del(${DSs[_index].MSSV})">Del</button>
+                </div>
+            </div>`;
+
+                    $(".studentInfo").append(str);
+                    _STT++;
+                }
+            }
+        }
+
+        function Edit(e) {
+            $(e).parents(".row").addClass("Editing");
+            _node = $(e).parents(".row").find(".col-4").first();
+            var _HoTen = _node.html();
+            var _MaSS = _node.next().html();
+
+            // Gán lên Input
+            $("#HoTen").val(_HoTen);
+            $("#MSSV").val(_MaSS);
+
+            // Gán trạng thái
+            $("#New").html("Update");
+            $("#New").attr("status", "Update");
+        }
+
+        function Del(_mssv) {
+            var _confirm = confirm("Are you sure?"); // hỏi người dùng
+            if (_confirm) {
+                for (let _index in DSs) {
+                    if (DSs[_index].MSSV == _mssv) {
+                        DSs.splice(_index, 1);
+                        ShowData();
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        $("#New").click(function() {
+            var _HoTen = $("#HoTen").val();
+            var _MSSV = $("#MSSV").val();
+            var _ClassCode = $("#ClassCode").val();
+            DSs.push({
+                "HoTen": _HoTen,
+                "MSSV": _MSSV,
+                "Email": "c@student.com",
+                "ClassCode": _ClassCode
+
+            });
+            ShowData();
+        });
+    </script>
+
+</body>
+
+</html>
