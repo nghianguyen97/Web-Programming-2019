@@ -22,31 +22,16 @@
 
 <body onload="LoadDuLieu();">
     <div class="wrap">
-        <h1 style="text-align: center">DANH SÁCH SINH VIÊN</h1>
+        <h1>DANH SÁCH SINH VIÊN</h1>
         <div class="Group-SV" id="Group-SV">
-            <div class="row" id="Group-New">
-                <div class="col-4">
-                    <input type="text" class="form-control" id="HoTen" placeholder="Enter Họ và tên">
-                </div>
-                <div class="col-4">
-                    <input type="text" class="form-control" id="MSSV" placeholder="Enter Họ và tên">
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-primary" id="New">Thêm mới</button>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-1 border border-dark">STT</div>
                 <div class="col-4 border border-dark">Họ và tên</div>
                 <div class="col-4 border border-dark">MSSV</div>
                 <div class="col-3 border border-dark">Chức năng</div>
             </div>
-        </div>
-        <div class="studentInfo">
 
-        </div>
-        <div>
-            <!-- <div class="row" id="Group-New">
+            <div class="row" id="Group-New">
                 <div class="col-1"></div>
                 <div class="col-4">
                     <input type="text" class="form-control" id="HoTen" placeholder="Enter Họ và tên">
@@ -59,109 +44,104 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-1">1</div>
-                <div class="col-4">Nguyễn A</div>
-                <div class="col-4">22541</div>
-                <div class="col-3">
-                    <button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button>
-                    <button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button>
+
+
+            <!-- <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-4">Nguyễn A</div>
+                    <div class="col-4">22541</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button>
+                    </div>
                 </div>
-            </div> -->
+                <div class="row">
+                    <div class="col-1">2</div>
+                    <div class="col-4">Nguyễn AV</div>
+                    <div class="col-4">2254155</div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning Edit">Edit</button>
+                        <button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button>
+                    </div>
+                </div>  -->
         </div>
     </div>
 
 
-    <script>
-        var DSs = [{
-            "HoTen": "Nguyễn Văn A",
-            "MSSV": "2230",
-            "Email": "a@student.com",
-            "ClassCode": "Lop1"
-        }, {
-            "HoTen": "Đoàn Văn B",
-            "MSSV": "2227",
-            "Email": "b@student.com",
-            "ClassCode": "Lop2"
-        }, {
-            "HoTen": "Đỗ Thị D",
-            "MSSV": "2219",
-            "Email": "c@student.com",
-            "ClassCode": "Lop1"
-        }, ];
+    <script type="text/javascript">
+        function LoadDuLieu() {
+            // var _DSSV = [
+            //     {
+            //         "HoTen" : "Nguyễn Văn A",
+            //         "MSSV"  : "2230",
+            //         "Email" : "a@student.com"
+            //     },
+            //     {
+            //         "HoTen" : "Đoàn Văn B",
+            //         "MSSV"  : "2227",
+            //         "Email" : "b@student.com"
+            //     },
+            //     {
+            //         "HoTen" : "Đỗ Thị C",
+            //         "MSSV"  : "2219",
+            //         "Email" : "c@student.com"
+            //     },
+            // ];
+            var DSs;
 
-        DSs.sort(function(a, b) {
-            if (a.MSSV > b.MSSV) {
-                return 1;
-            } else if (a.MSSV < b.MSSV) {
-                return -1;
-            } else {
-                if (a.HoTen > b.HoTen) {
-                    return 1;
-                } else if (a.HoTen < b.HoTen) {
-                    return -1;
-                } else {
-                    if (a.Email > b.Email) {
-                        return 1;
-                    } else if (a.Email < b.Email) {
-                        return -1;
-                    } else {
-                        if (a.ClassCode > b.ClassCode) {
-                            return 1;
-                        } else if (a.ClassCode < b.ClassCode) {
-                            return -1;
-                        } else {
-                            return 0;
-                        }
-                    }
-                }
+            // Lấy dữ liệu từ server
+            $.post(
+                "http://45.32.20.144/", {
+                    "DanhSach": "SV",
+                },
+                function(_DSSV) {
+                    DSs = _DSSV;
+                    ListDS(_DSSV);
+                },
+                "json"
+            );
+
+        }
+
+        // Hàm hiển thị danh sách
+        function ListDS(_DSSV) {
+            for (let _index in _DSSV) {
+                let STT = +_index + 1;
+                let _str = '<div class="row"><div class="col-1">' + STT + '</div><div class="col-4">' + _DSSV[_index].HoTen + '</div><div class="col-4">' + _DSSV[_index].MSSV + '</div><div class="col-3"><button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button><button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button></div></div>';
+
+                $("#Group-SV").append(_str);
             }
+        }
+
+        $("#New").click(function() {
+            var _HoTen = $("#HoTen").val();
+            var _MSSV = $("#MSSV").val();
+            if ($(this).attr("status") == "New") {
+                let _str = '<div class="row"><div class="col-1"></div><div class="col-4">' + _HoTen + '</div><div class="col-4">' + _MSSV + '</div><div class="col-3"><button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button><button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button></div></div>';
+                $("#Group-New").after(_str);
+            } else {
+                // Cập nhật lại nút thêm mới
+                $("#New").html("New");
+                $("#New").attr("status", "New");
+
+                // Xóa dữ liệu input
+                $("#HoTen").val("");
+                $("#MSSV").val("");
+
+                // Thêm vào sau nút Editing
+                let _str = '<div class="row"><div class="col-1"></div><div class="col-4">' + _HoTen + '</div><div class="col-4">' + _MSSV + '</div><div class="col-3"><button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button><button type="button" class="btn btn-danger Del" onclick="Del(this)">Del</button></div></div>';
+                $(".Editing").after(_str);
+
+                // Xóa nút cũ
+                $(".Editing").remove();
+            }
+
         });
 
-        function LoadDuLieu() {
-            ShowData();
-        }
-
-        //function to ShowData
-
-        function ShowData() {
-            $(".studentInfo").html(""); //xóa dữ liệu để không bị trùng lặp
-            for (let _index in DSs) {
-                let _STT = +_index + 1;
-                let str = `<div class="row">
-                <div class="col-1">${_STT}</div>
-                <div class="col-4">${DSs[_index].HoTen}</div>
-                <div class="col-4">${DSs[_index].MSSV}</div>
-                <div class="col-3">
-                    <button type="button" class="btn btn-warning Edit" onclick="Edit(${DSs[_index].MSSV})">Edit</button>
-                    <button type="button" class="btn btn-danger Del" onclick="Del(${DSs[_index].MSSV})">Del</button>
-                </div>
-            </div>`;
-
-                $(".studentInfo").append(str);
-            }
-        }
-
-        // hiểm thị dssv theo id lớp
-        function ShowDataByIDClass(_malop) {
-            let _STT = 1;
-            $(".studentInfo").html(""); //xóa dữ liệu để không bị trùng lặp
-            for (let _index in DSs) {
-
-                if (DSs[_index].ClassCode == _malop) {
-                    let str = `<div class="row">
-                <div class="col-1">${_STT}</div>
-                <div class="col-4">${DSs[_index].HoTen}</div>
-                <div class="col-4">${DSs[_index].MSSV}</div>
-                <div class="col-3">
-                    <button type="button" class="btn btn-warning Edit" onclick="Edit(this)">Edit</button>
-                    <button type="button" class="btn btn-danger Del" onclick="Del(${DSs[_index].MSSV})">Del</button>
-                </div>
-            </div>`;
-
-                    $(".studentInfo").append(str);
-                    _STT++;
-                }
+        function Del(e) {
+            var _confirm = confirm("Are you sure?");
+            if (_confirm) {
+                $(e).parents(".row").remove();
             }
         }
 
@@ -180,34 +160,14 @@
             $("#New").attr("status", "Update");
         }
 
-        function Del(_mssv) {
-            var _confirm = confirm("Are you sure?"); // hỏi người dùng
-            if (_confirm) {
-                for (let _index in DSs) {
-                    if (DSs[_index].MSSV == _mssv) {
-                        DSs.splice(_index, 1);
-                        ShowData();
-                        break;
-                    }
-                }
-            }
-        }
-
-
-        $("#New").click(function() {
-            var _HoTen = $("#HoTen").val();
-            var _MSSV = $("#MSSV").val();
-            var _ClassCode = $("#ClassCode").val();
-            DSs.push({
-                "HoTen": _HoTen,
-                "MSSV": _MSSV,
-                "Email": "c@student.com",
-                "ClassCode": _ClassCode
-
-            });
-            ShowData();
-        });
+        // DSs.unshift({
+        //     "HoTen" : _HoTen,
+        //     "MSSV" : _MSSV
+        // });
+        // ListDS(DSs);
     </script>
+
+
 
 </body>
 
